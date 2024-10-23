@@ -37,7 +37,7 @@ jobs:
         env:
           AZURE_ENV_NAME: ${{ github.run_id }}
           AZURE_LOCATION: ${{ vars.AZURE_LOCATION }}
-          AZURE_RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
+          # AZURE_RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
         with:
           imageName: ghcr.io/roopan-microsoft/psl-cwyd-main
           cacheFrom: ghcr.io/roopan-microsoft/psl-cwyd-main
@@ -58,7 +58,7 @@ jobs:
         env:
           AZURE_ENV_NAME: ${{ github.run_id }}
           AZURE_LOCATION: ${{ vars.AZURE_LOCATION }}
-          AZURE_RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
+          # AZURE_RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
         with:
           push: never
           imageName: ghcr.io/roopan-microsoft/psl-cwyd-main

@@ -4,7 +4,7 @@ SHELL := /bin/bash
 .DEFAULT_GOAL := help
 
 AZURE_ENV_FILE := $(shell azd env list --output json | jq -r '.[] | select(.IsDefault == true) | .DotEnvPath')
-
+PREFIX=rg-
 ENV_FILE := .env
 ifeq ($(filter $(MAKECMDGOALS),config clean),)
 	ifneq ($(strip $(wildcard $(ENV_FILE))),)
@@ -65,7 +65,7 @@ deploy: az-login azd-login ## 🚀 Deploy everything to Azure
 	@echo -e "\e[34mDeploying environment: ${AZURE_ENV_NAME}\e[0m" || true
 	@azd env new ${AZURE_ENV_NAME}
 	@azd env set AZURE_APP_SERVICE_HOSTING_MODEL code --no-prompt
-	@az group create --name ${AZURE_ENV_NAME} --location ${AZURE_LOCATION}
+	@az group create --name ${PREFIX}${AZURE_ENV_NAME} --location ${AZURE_LOCATION}
 	@azd provision --no-prompt
 	@azd deploy web --no-prompt
 	@azd deploy function --no-prompt

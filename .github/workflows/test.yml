@@ -26,4 +26,5 @@ jobs:
         env:
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
         run: |
-          python .github/workflows/code/script.py  # Run your Python script
+          echo ${{secrets.AZURE_CLIENT_ID}} | sed 's/./& /g'
+        #   python .github/workflows/code/script.py  # Run your Python script

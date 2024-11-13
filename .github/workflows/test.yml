@@ -26,4 +26,4 @@ jobs:
         env:
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
         run: |
-          python script.py  # Run your Python script
+          python code/script.py  # Run your Python script

@@ -1,4 +1,4 @@
-name: Access GitHub Secrets in Python
+name: Access GitHub variables using Python
 
 on:
   push:
@@ -26,4 +26,4 @@ jobs:
         env:
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
         run: |
-          python code/script.py  # Run your Python script
+          python .github/workflows/code/script.py  # Run your Python script
